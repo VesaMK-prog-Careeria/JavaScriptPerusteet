@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<html>
+<body>
+    <p>Klikkaa nappia, niin saat päivämäärän selaimen lokaalissa esitysmuodossa</p>
+    <button onclick="localPvmMuoto()">Hae pvm</button>
+    <p id="localPvm"></p>
+    <p>Klikkaa nappia, niin saat päivämäärän muotoillussa esitysmuodossa</p>
+    <button onclick="omaPvmMuoto()">Hae pvm</button>
+    <p id="muotoiltuPvm"></p>
+    <script>
+        function localPvmMuoto() {
+            var pvm = new Date();
+            var localPvm = pvm.toLocaleDateString();
+            document.getElementById("localPvm").innerHTML = localPvm;
+        }
+
+        function omaPvmMuoto() {
+            var pvm = new Date();
+            var omaPvm = pvm.getDate() + "." + (pvm.getMonth()+1) + "." + pvm.getFullYear();
+            document.getElementById("muotoiltuPvm").innerHTML = omaPvm;
+        }
+    </script>
+</body>
+</html>

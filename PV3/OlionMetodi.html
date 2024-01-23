@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Olion metodi sekä this-avainsana</h2>
+<p id="ots1">Tässä esimerkissä <b>this-avainsana</b> viittaa <b>person</b> -olioon.</p>
+<p id="ots2">Person-oliolla on fullName metodi.</p>
+<p>Ilman ID:tä oleva kappale</p>
+<p id="demo"></p>
+<script>
+    //Anonyymi funktio esim. 1
+    (function() {
+        alert('Kiva kun tulit sivustolle!');
+    })();
+    //Anonyymi funktio esim. 2
+    var anon = function() {
+        alert('Olen nimetön!!!');
+    }
+    anon();
+
+    let kappaleet = document.getElementsByTagName("p");
+        for (i=0; i < kappaleet.length; i++) {
+            kappaleet[i].addEventListener("click", varitaIiDee, false);
+        }
+
+    function varitaIiDee(ev) {
+        document.getElementById(ev.target.id).style.color = "red";
+        alert(ev.target.innerText);
+    }
+    // Luodaan person-olio ja fullName-metodi
+    var person = {
+        firstName: "Juha",
+        lastName : "Kähkönen",
+        id     : 1234,
+        fullName : function() {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+    // Näytetään kokonimi
+    document.getElementById("demo").innerHTML = person.fullName();
+</script>
+</body>
+</html>

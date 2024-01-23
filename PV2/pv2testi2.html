@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Autoja</h1>
+<p class="Autoja" id="auto1">Hyundai i40</p>
+<p class="Autoja" id="auto2">Volvo V90 Diesel</p>
+<p class="Autoja" id="auto3">BMW 524 TD Diesel</p>
+<p class="Autoja" id="auto4">Land Cruiser V8</p>
+<p class="Autoja" id="auto5">Trabant 2T</p>
+
+<button onclick="autoSilmukka()">Tarkista autot</button>
+
+<script>
+function autoSilmukka() {
+    let autoNoodit = document.getElementsByClassName("Autoja");
+    let i;
+    for (i=0; i < autoNoodit.length; i++ ) {
+        //alert("auto"+(i+1));
+        paastoTarkitus("auto"+(i+1));
+    }
+}
+function paastoTarkitus(idPara) {
+    var auto1 = document.getElementById(idPara).innerHTML;
+    var konetyyppi = auto1.indexOf("Diesel");
+    if (konetyyppi > 0) {
+        //alert("Autosi saattaa saastuttaa! Tarkista päästöt");
+        document.getElementById(idPara).innerHTML = auto1 + " TARKISTA PÄÄSTÖT!";
+        tyyliFunktio(idPara);
+    }
+}
+function tyyliFunktio(iidee) {
+		document.getElementById(iidee).style.fontSize = "25px"; 
+		document.getElementById(iidee).style.color = "red";
+		document.getElementById(iidee).style.backgroundColor = "yellow"; 
+	}
+
+</script>
+
+</body>
+</html>

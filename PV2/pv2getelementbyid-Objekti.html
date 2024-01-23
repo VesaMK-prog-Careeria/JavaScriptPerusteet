@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<html>
+    <body>
+        <h1>Auto-objekti</h1>
+        <h3>Tähän tulee auton tiedot</h3>
+        <p id="kaara"></p>
+        <script type="text/JavaScript">
+            //Luodaan auto-objekti:
+            var auto = {merkki:"Opel", malli:"Insignia", vari:"musta", teho:100, moottori:"2,0 CDTI"};
+            //Näytetään data elementin kohdalla 
+            document.getElementById("kaara").innerHTML = 
+                "Auton merkki on: " + auto.merkki  + "<br>" +
+                " malli: " + auto.malli  + "<br>" +
+                " väri: " + auto.vari  + "<br>" +
+                " moottori: " + auto.moottori  + "<br>" + 
+                " moottorin teho: " + auto.teho  + "<br>";      
+        </script>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <meta charset="utf-8">
+    <script src="pv3calcTehtava.js"></script>
+    <link rel="stylesheet" type="text/css" href="pv3calcTehtava.css">
+</head>
+<header>
+    <h1>Kalkulaattori</h1>
+    <button onclick="showDate()">Päivitä</button>
+    <p id="date"></p>
+
+</header>
+<body>
+    <div class="calculator"> 
+        <h4 id="calc"></h4>
+        <h3 id="result"></h3>
+        <button onclick="appendNumber(7)">7</button> 
+        <button onclick="appendNumber(8)">8</button>
+        <button onclick="appendNumber(9)">9</button>
+        <button onclick="appendOperator('*')">*</button>
+        <button onclick="appendNumber(4)">4</button>
+        <button onclick="appendNumber(5)">5</button>
+        <button onclick="appendNumber(6)">6</button>
+        <button onclick="appendOperator('+')">+</button>
+        <button onclick="appendNumber(1)">1</button>
+        <button onclick="appendNumber(2)">2</button>
+        <button onclick="appendNumber(3)">3</button>
+        <button onclick="appendOperator('-')">-</button>
+        <button onclick="clearResult()">C</button>
+        <button onclick="appendNumber(0)">0</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendOperator('/')">/</button>
+        <button id="BS" onclick="backspace()">BS</button>
+    </div>
+</body>
+</html>

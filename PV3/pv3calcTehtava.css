@@ -1,0 +1,44 @@
+header { /* Tässä on määritelty sivun otsikon ulkoasu */
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+}
+h1 { /* Tässä on määritelty laskimen otsikon ulkoasu */
+text-align: center;
+}
+.calculator { /* Tässä on määritelty laskimen ulkoasu */
+    display: grid; /* Tämä on CSS Grid -tekniikkaa, joka on uusi tapa määritellä elementtien sijainti ja koko */
+    grid-template-columns: repeat(4, 1fr); /* Määritellään 4 saraketta, joiden leveys on 1fr (1 fraction) */
+    grid-gap: 1px;  
+    max-width: 300px; 
+    margin: 50px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+h4 { /* Tässä on määritelty laskimen näytön ulkoasu */
+    grid-column: span 4;
+    padding-right: 5px;
+    font-size: 24px;
+    text-align: right;            
+}
+h3 { /* Tässä on määritelty laskimen näytön ulkoasu */
+    grid-column: span 4;
+    padding-right: 5px;
+    margin-top: 0%;
+    font-size: 30px;
+    text-align: right;
+}
+.calculator button { /* Tässä on määritelty laskimen painikkeiden ulkoasu */
+    padding: 10px;
+    font-size: 18px;
+}
+#BS {
+    grid-column: span 4;
+    padding: 10px;
+    font-size: 18px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML-laskin versio 0.1</title>
+    </head>
+    <body>
+        <div id="HTMLlaskin">
+  
+          <form name="frmLaskin">
+            
+            <input type="text" name="answer" />
+            <br>
+            
+            <input type="button" value=" 1 " onclick="frmLaskin.answer.value += '1'" />
+            <input type="button" value=" 2 " onclick="frmLaskin.answer.value += '2'" />
+            <input type="button" value=" 3 " onclick="frmLaskin.answer.value += '3'" />
+            <input type="button" value=" + " onclick="frmLaskin.answer.value += '+'" />
+            <br/>
+            
+            <input type="button" value=" 4 " onclick="frmLaskin.answer.value += '4'" />
+            <input type="button" value=" 5 " onclick="frmLaskin.answer.value += '5'" />
+            <input type="button" value=" 6 " onclick="frmLaskin.answer.value += '6'" />
+            <input type="button" value=" - " onclick="frmLaskin.answer.value += '-'" />
+            </br>
+          
+            <input type="button" value=" 7 " onclick="frmLaskin.answer.value += '7'" />
+            <input type="button" value=" 8 " onclick="frmLaskin.answer.value += '8'" />
+            <input type="button" value=" 9 " onclick="frmLaskin.answer.value += '9'" />
+            <input type="button" value=" x " onclick="frmLaskin.answer.value += '*'" />
+            </br>
+        
+            <input type="button" value=" c " onclick="frmLaskin.answer.value = ''" />
+            <input type="button" value=" 0 " onclick="frmLaskin.answer.value += '0'" />
+            <input type="button" value=" = " onclick="frmLaskin.answer.value = eval(frmLaskin.answer.value)" />
+            <input type="button" value=" / " onclick="frmLaskin.answer.value += '/'" />
+            </br>
+  
+    
+          </form>
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<html>
+	<body>
+      <h1>Päivämääräkäsittely</h1>
+         <form name="pvmLomake">
+            Anna alkupvm: <input type="date" name="apvm" max="2023-01-22"><br><br>
+            Anna loppupvm: <input type="date" name="lpvm" min="1960-01-01"><br><br>
+            <input type="button" value="Päivämäärien erotus" onclick="laskePvmEro()"><br><br>
+            Päivämäärien erotus päivissä: <input type="text" name="paivia"><br>
+            Päivämäärien erotus vuosissa: <input type="text" name="vuosia"><br>
+         </form>  
+      <script>
+         function laskePvmEro() {
+            var pvmEka = Date.parse(document.pvmLomake.apvm.value);
+            var pvmToka = Date.parse(document.pvmLomake.lpvm.value);
+            // alert(Date.parse(document.pvmLomake.lpvm.value));
+            // alert(document.pvmLomake.lpvm.value);
+            // alert(typeof(document.pvmLomake.lpvm.value));
+            //Aikaero millisekunneissa
+            var aikaEro = Math.abs(pvmToka-pvmEka);
+            //Montako päivää
+            var pvmEro = Math.ceil(aikaEro / (1000 * 3600 * 24));
+            var vvvvEro = Math.floor(aikaEro / (1000 * 3600 * 24 * 365));
+            // difference
+            document.pvmLomake.paivia.value=pvmEro;
+            document.pvmLomake.vuosia.value=vvvvEro;
+         }
+      </script>
+   </body>
+</html>

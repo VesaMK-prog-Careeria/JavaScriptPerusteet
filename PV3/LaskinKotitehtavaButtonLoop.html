@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="LaskinKotitehtava.css">
+        <title>HTML-laskin versio 0.1</title>
+    </head>
+    <body>
+        <div id="HTMLlaskin">
+            <button class="buttoni" id="1" onClick="luoLaskukaavaa()">1</button>
+            <button class="buttoni" id="2" onClick="luoLaskukaavaa()">2</button>
+            <button class="buttoni" id="3" onClick="luoLaskukaavaa()">3</button>
+            <button class="buttoni" id="+" onClick="luoLaskukaavaa()">+</button>
+            <br/>
+            <button class="buttoni" id="4" onClick="luoLaskukaavaa()">4</button>
+            <button class="buttoni" id="5" onClick="luoLaskukaavaa()">5</button>
+            <button class="buttoni" id="6" onClick="luoLaskukaavaa()">6</button>
+            <button class="buttoni" id="-" onClick="luoLaskukaavaa()">-</button>
+            </br>
+            <button class="buttoni" id="7" onClick="luoLaskukaavaa()">7</button>
+            <button class="buttoni" id="8" onClick="luoLaskukaavaa()">8</button>
+            <button class="buttoni" id="9" onClick="luoLaskukaavaa()">9</button>
+            <button class="buttoni" id="*" onClick="luoLaskukaavaa()">*</button>
+            </br>
+            <button class="buttoni" id="C" onClick="luoLaskukaavaa()">C</button>
+            <button class="buttoni" id="0" onClick="luoLaskukaavaa()">0</button>
+            <button class="buttoni" id="=" onClick="luoLaskukaavaa()">=</button>
+            <button class="buttoni" id="/" onClick="luoLaskukaavaa()">/</button>
+            </br>
+            <button class="buttoni" id="BS" onClick="luoLaskukaavaa()">BS</button>
+            <button class="buttoni" id="(" onClick="luoLaskukaavaa()">(</button>
+            <button class="buttoni" id=")" onClick="luoLaskukaavaa()">)</button>
+        </div>
+        <h3 id="kaava"></h3>
+        <h2 id="tulos"></h2>
+        <script>
+            let laskukaava = "";
+            function luoLaskukaavaa() {
+                let buttonit = document.getElementsByClassName("buttoni");
+                let i;
+                for (i=0; i < buttonit.length; i++ ) {
+                    buttonit[i].onclick = function(e) {
+                        if (this.id=="=") {
+                            poistaViimeinenOper();
+                            document.getElementById("tulos").innerText=eval(laskukaava);
+                        } else if (this.id=="C") {
+                            laskukaava = "";
+                            document.getElementById("kaava").innerText=laskukaava;
+                            document.getElementById("tulos").innerText="";  
+                        } else if (this.id=="BS") {
+                            laskukaava = laskukaava.substr(0,laskukaava.length-1);
+                            document.getElementById("kaava").innerText=laskukaava;
+                        } else {
+                            laskukaava = laskukaava + this.id;
+                            document.getElementById("kaava").innerText=laskukaava;
+                        }
+                    };
+                }
+            }
+
+            function poistaViimeinenOper() {
+                let operaattorit = "+-*/";
+                let viimeinenMrk = laskukaava.substr(laskukaava.length-1,laskukaava.length);
+                //alert(laskukaava + " " + viimeinenMrk + " " + operaattorit);
+                if (operaattorit.indexOf(viimeinenMrk)>0) {
+                    laskukaava = laskukaava.substr(0,laskukaava.length-1);
+                    document.getElementById("kaava").innerText=laskukaava;
+                    //alert(laskukaava);
+                }
+            }
+        </script>
+    </body>
+</html>

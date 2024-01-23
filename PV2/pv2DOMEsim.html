@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<html>
+	<body>
+	<h2>JavaScript document.getElementById -testi</h2>
+    <h1 id="paikka1">ertertewrtwetre</h1>
+    <h1 id="paikka2">Hyvää...</h1>
+	<script>
+		var text = "paikkaan kohdistunut tieto";
+        document.getElementById("paikka1").innerHTML = text;
+        
+        function testiFunktio() {
+            document.getElementById("paikka2").innerHTML = "Hyvää päivää!";
+            alert("Terve!"); //vrt. c# MessageBox.Show("Terve!")
+        }
+
+        function tyyliFunktio() {
+            document.getElementById("paikka1").style.color="red";
+        }
+
+        function laske(clicked_id)
+        {
+            //alert(clicked_id);
+            if (clicked_id == "+") {
+                alert("plussa");
+            } else if (clicked_id == "-") {
+                alert("miinus");
+            } else if (clicked_id == "*") {
+                alert("kerto");
+            } else if (clicked_id == "/") {
+                alert("jako");
+            }
+        }
+
+        function lisaaUutta() {
+            var h = document.createElement("h3");
+            var t = document.createTextNode("Hello World");
+            h.appendChild(t);
+            document.body.appendChild(h);
+            var h = document.createElement("p");
+            var t = document.createTextNode("Hello World");
+            h.appendChild(t);
+            document.body.appendChild(h)
+            var h = document.createElement("h1");
+            var t = document.createTextNode("Hello World");
+            h.appendChild(t);
+            document.body.appendChild(h)
+        }
+
+    </script>
+    <button onclick="testiFunktio()">Tervehdys</button>
+    <button onclick="tyyliFunktio()">Vaihda tyyliä</button>
+    <button id="+" onClick="laske(this.id)">+</button>
+    <button id="-" onClick="laske(this.id)">-</button>
+    <button id="*" onClick="laske(this.id)">*</button>
+    <button id="/" onClick="laske(this.id)">/</button>
+    <button onclick="lisaaUutta()">Luo listaa</button>
+	</body>
+</html>

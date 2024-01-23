@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <h1>Kalkulaattori</h1>
+    <style>
+        h1 { /* Tässä on määritelty laskimen otsikon ulkoasu */
+        text-align: center;
+        }
+        .calculator { /* Tässä on määritelty laskimen ulkoasu */
+            display: grid; /* Tämä on CSS Grid -tekniikkaa, joka on uusi tapa määritellä elementtien sijainti ja koko */
+            grid-template-columns: repeat(4, 1fr); /* Määritellään 4 saraketta, joiden leveys on 1fr (1 fraction) */
+            grid-gap: 1px;  
+            max-width: 300px; 
+            margin: 50px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        h4 { /* Tässä on määritelty laskimen näytön ulkoasu */
+            grid-column: span 4;
+            padding-right: 5px;
+            font-size: 24px;
+            text-align: right;            
+        }
+        h3 { /* Tässä on määritelty laskimen näytön ulkoasu */
+            grid-column: span 4;
+            padding-right: 5px;
+            margin-top: 0%;
+            font-size: 30px;
+            text-align: right;
+        }
+        .calculator button { /* Tässä on määritelty laskimen painikkeiden ulkoasu */
+            padding: 10px;
+            font-size: 18px;
+        }
+        #BS {
+            grid-column: span 4;
+            padding: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator"> 
+        <h4 id="calc">0</h4>
+        <h3 id="result">0</h3>
+        <button onclick="appendNumber(7)">7</button> 
+        <button onclick="appendNumber(8)">8</button>
+        <button onclick="appendNumber(9)">9</button>
+        <button onclick="appendOperator('*')">*</button>
+        <button onclick="appendNumber(4)">4</button>
+        <button onclick="appendNumber(5)">5</button>
+        <button onclick="appendNumber(6)">6</button>
+        <button onclick="appendOperator('+')">+</button>
+        <button onclick="appendNumber(1)">1</button>
+        <button onclick="appendNumber(2)">2</button>
+        <button onclick="appendNumber(3)">3</button>
+        <button onclick="appendOperator('-')">-</button>
+        <button onclick="clearResult()">C</button>
+        <button onclick="appendNumber(0)">0</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendOperator('/')">/</button>
+        <button id="BS" onclick="backspace()">BS</button>
+    </div>
+
+    <script>
+        function clearResult() { /* Tämä funktio tyhjentää laskimen näytön */
+            document.getElementById('calc').innerHTML = '';
+            document.getElementById('result').innerHTML = '';
+        }
+
+        function backspace() { /* Tämä funktio poistaa laskimen näytöltä viimeisen numeron tai operaattorin */
+            var expression = document.getElementById('calc').innerHTML;
+            document.getElementById('calc').innerHTML = expression.substring(0, expression.length - 1);
+        }
+
+        function appendNumber(number) { /* Tämä funktio lisää laskimen näytölle numeron */
+            let kaava = document.getElementById('calc').innerHTML;
+            if (kaava == 0) {
+                document.getElementById('calc').innerHTML = '';
+            }
+                document.getElementById('calc').innerHTML += number;
+            
+        }
+
+        function appendOperator(operator) { /* Tämä funktio poistaa laskimen näytöltä operaattorin */
+            var expression = document.getElementById('calc').innerHTML;
+            var lastChar = expression.charAt(expression.length - 1);
+            if (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/') {
+                document.getElementById('calc').innerHTML = expression.substring(0, expression.length - 1);
+            }
+            document.getElementById('calc').innerHTML += operator;
+        }
+
+        function calculate() {
+            appendOperator(''); /* Kutsutaan yllä olevaa funktiota */
+            var expression = document.getElementById('calc').innerHTML; /* Tämä lukee laskimen näytöllä olevan laskun */
+            var result = eval(expression); /* Tämä laskee laskimen näytöllä olevan laskun */
+            document.getElementById('result').innerHTML = result;
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript-laskin</title>
+</head>
+<html>
+    <body>
+        <h1>Laskin</h1>
+        <form name="calculator">
+            Luku1: <input type="text" name="numero1"><br>
+            Luku2: <input type="text" name="numero2"><br>
+            Lukujen summa: <input type="text" name="tulos"><br>
+            <input type="button" value="Summa" onclick="summa()">
+            <input type="button" value="Erotus" onclick="erotus()">
+            <input type="button" value="Tulo" onclick="tulo()">
+            <input type="button" value="Jako" onclick="jako()">
+            <input type="button" value="Tyhjennä" onclick="tyhjenna()"><br>
+
+        </form>
+        <script>
+            n1=0, n2=0, t=0;
+            function summa() {
+                n1=Number(document.calculator.numero1.value);
+                n2=Number(document.calculator.numero2.value);
+                t=n1+n2;
+                document.calculator.tulos.value=t;
+            }
+            function erotus() {
+                n1=Number(document.calculator.numero1.value);
+                n2=Number(document.calculator.numero2.value);
+                t=n1-n2;
+                document.calculator.tulos.value=t;
+            }
+
+            function tulo() {
+                n1=Number(document.calculator.numero1.value);
+                n2=Number(document.calculator.numero2.value);
+                t=n1*n2;
+                document.calculator.tulos.value=t;
+            }
+
+            function jako() {
+                n1=Number(document.calculator.numero1.value);
+                n2=Number(document.calculator.numero2.value);
+                t=n1/n2;
+                document.calculator.tulos.value=t;
+            }
+
+            function tyhjenna() {
+                document.calculator.tulos.value="";
+                document.calculator.numero1.value="";
+                document.calculator.numero2.value="";
+            }
+
+        </script>
+    </body>
+</html>
