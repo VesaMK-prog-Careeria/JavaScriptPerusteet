@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +7,27 @@
     <script src="3pvTuoteTehtava.js"></script>
     <title>Tuotesovellus</title>
 </head>
+<html>
 <body>
-    <header>
-        <h1>Tuotesovellus</h1>
-    </header>
-    <br>
-    <button type="button" onclick="haeTuotteet()">Hae tuotteet</button>
-    <button type="button" onclick="luoLinkit()">Tuo Linkit</button>
-    <br>
     <div class="container">
-        <div class="sidebar">
-            <h3>Linkit</h3>
-            <div id="linkit">
-            </div>
-        </div>
+        <header>
+            <h1>Tuotesovellus</h1>
+        </header>
+        <br><br>
+        <nav id="linkit">Linkit</nav>
         <main>
-            <div>
-                <p id="tuotteet"></p>
-            </div>
             
+            <button class="button" onclick="haeTuotteet()">Hae tuotteet</button>
+            <button class="button" onclick="luoLinkit()">Tuo Linkit</button>
+            <br>
+            <p id="tuotteet"></p>            
         </main>
     </div>
-    <footer>
-        
+    <div class="footer">
         <logo>
-            <img src="logo2.png" alt="oma logo" width="100">
-            <p>&copy; 2024 VK</p>
+            <img src="logo2.png" alt="oma logo" width="50">
+            &copy; 2024 VK
+        </logo>
+    </div>
 </body>
 </html>
