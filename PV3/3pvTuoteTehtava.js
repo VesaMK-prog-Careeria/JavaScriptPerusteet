@@ -18,7 +18,7 @@
             x += "<td>" + myObj.tuotteet[i].tuote + "</td>";
             x += "<td>" + myObj.tuotteet[i].ostohinta + "</td>";
             x += "<td>" + myObj.tuotteet[i].myyntihinta + "</td>";
-            x += "<td>" + (myObj.tuotteet[i].ostohinta / myObj.tuotteet[i].myyntihinta * 100).toFixed(2) + "</td></tr>";
+            x += "<td>" + ((myObj.tuotteet[i].myyntihinta - myObj.tuotteet[i].ostohinta) / myObj.tuotteet[i].myyntihinta * 100).toFixed(2) + "</td></tr>";
         }
         x += "</table>"; //taulukon lopetus
         //sijoitetaan silmukassa luotu taulukko HTML-sivun kohtaan, jossa on merkintä id="tuotteet"
