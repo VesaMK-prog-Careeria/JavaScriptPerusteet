@@ -1,0 +1,47 @@
+body {
+  background-color: black;
+}
+
+p {
+    font-family: verdana;
+    font-size: 25px;
+    color: brown;
+  }
+  
+  h1 {
+    color: green;
+    }
+
+    .main {
+      border: chartreuse;
+      border-style: solid;
+      background-color: silver;
+      width: 75%;
+      text-align: center;
+      min-height: 500px;
+      margin-left: 10%;
+    }
+    .myButton {
+      box-shadow:inset -47px 1px 26px 3px #ffffff;
+      background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+      background-color:#ededed;
+      border-radius:9px;
+      border:1px solid #dcdcdc;
+      display:inline-block;
+      cursor:pointer;
+      color:#777777;
+      font-family:Arial;
+      font-size:15px;
+      font-weight:bold;
+      padding:12px 35px;
+      text-decoration:none;
+      text-shadow:0px 1px 0px #ffffff;
+    }
+    .myButton:hover {
+      background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+      background-color:#dfdfdf;
+    }
+    .myButton:active {
+      position:relative;
+      top:3px;
+    }
