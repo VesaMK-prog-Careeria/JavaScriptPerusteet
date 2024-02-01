@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Herkut</title>
+</head>
+<body>
+    <center>
+        <div id="pin-div">
+            <input id="pin" placeholder="pin code" type="password" />
+            <button onclick="checkPin()">LOGIN</button>
+        </div>
+        <button class="hidden" onclick="logOut()">LOGOUT</button>
+
+        <h1 id="welcome">Herkuista tykkäävät kaikki, mutta erityisesti <b>minä</b>!</h1>
+        
+        <h1 class="hidden">Hello from node & express server!</h1>
+
+        <div class="hidden" id="sisältö"></div>
+    </center>
+
+
+    <script>
+
+        const savedPin = localStorage.getItem("pinkoodi")
+        if (savedPin != null && savedPin != undefined) {
+        showElements()
+        }
+
+    
+        //LogOut functio
+        function logOut() {
+            localStorage.clear()
+            window.location.reload()
+        }
+
+        // tarkistetaan pin koodi
+            async function checkPin() {
+            var pin = document.getElementById("pin").value
+            const response = await fetch("http://localhost:3000/api/getpin")
+            const correctPin = await response.json()
+
+            if (pin == correctPin) {
+            //Kirjoittaminen localstorageen
+            localStorage.setItem("pinkoodi", pin)
+            showElements()
+
+            //tervehdystekstin näyttäminen
+            document.getElementById("welcome").style.visibility = "visible"
+            //tervehdystekstin piilottaminen 2 sekunnin kuluttua
+            setTimeout(() => {
+                document.getElementById("welcome").style.visibility = "hidden"
+            }, 4000)
+            }
+            else {
+                alert("Väärä pin koodi!")
+                }
+            }
+
+        //showElements()
+        function showElements() {
+            var hiddenElements = document.getElementsByClassName("hidden")
+            for (i=0; i<hiddenElements.length; i++) {
+            hiddenElements[i].style.visibility = "visible"
+            document.getElementById("pin-div").style.visibility = "hidden"
+        }
+        }
+
+        // dataa haetaan vain jos pin koodi on oikein
+        async function fetchData() {
+        document.getElementById("sisältö").innerHTML = "<h4>Ladataan herkkuja...</h4>"
+
+        var x = `<table><thead><th>Herkun nimi</th><th>tuotekoodi</th></thead><tbody>`
+
+            try {
+                const response = await fetch("http://localhost:3000/api/herkut") //haetaan herkut
+                const herkkudata = await response.json() //muutetaan json javascriptiksi
+
+                await herkkudata.map(h => { //loopataan läpi oliot map funktiolla, h on 1 herkku
+                    x += `<tr><td>${h.name}</td><td>${h.id}</td></tr>`
+                })
+
+                // taulukko päätetään ja renderöidään html elementtiin
+                x += `</tbody></table>`
+                document.getElementById("sisältö").innerHTML = x
+
+                //virheenkäsittely
+            } catch (error) {
+                console.error("Virhe herkkuja ladattaessa: ", error)
+                //document.getElementById("sisältö").innerHTML = "<h4>Virhe herkkuja ladattaessa...</h4>"
+            }
+            }
+        fetchData()
+    </script>
+</body>
+</html>
