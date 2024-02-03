@@ -1,0 +1,15 @@
+@section scripts {
+<script>
+    $(document).ready(function(){
+     $("#ehdotBox").change(function(){
+        if (this.checked === true) {
+            $("#LisääButton").prop("disabled", false);
+        }
+        else {
+            $("#LisääButton").prop("disabled", true);
+        }
+        });
+        });
+</script>
+}
+```
